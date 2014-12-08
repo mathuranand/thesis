@@ -15,11 +15,11 @@ Author: Akshay Shanker
 	
 	Parameters
 	-----------
-	f : 	function
+	f : 	function,
 			f: H --> R is the aggregate production function.  
-	fp : 	function
+	fp : 	function,
 			fp: H-->H. fp(x) for x\in H is the Frechet derivative at x
-	Omega : 	function
+	Omega : function,
 			Omega: H-->H is a compact spillover operator 
 			Omega(x)(i) tells me the spills received at i
 	ker : 	function
@@ -117,9 +117,9 @@ class geog(object):
 		"""
 		The projected decent operator is a composition of two operators.
 		First is the decent
-								Tw = w-phi*fp(w)
+				Tw = w-phi*fp(w)
 		second is projection 
-								P(w) = argmin_x\inC |w-x|
+				P(w) = argmin_x\inC |w-x|
 		where C is our constraint set
 		
 		We choose phi according to the Armijo rule. 
@@ -127,7 +127,7 @@ class geog(object):
 		
 		Parameters
 		----------
-		w : array_like(float, ndim=1)
+		w : array_like(float, ndim=1),
 		The value of the input function on different grid points
 		
 		Issues
@@ -158,7 +158,6 @@ class geog(object):
 		constant at optimal x. This value is the equilibrum 
 				
 				lambda = (1+g)\beta +\delta -1
-		
 		
 		Parameters
 		----------
