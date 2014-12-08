@@ -4,44 +4,44 @@ from scipy import interp
 from norms import normL2
 
 """
-		This class defines the primitives for the optimal spatial growth model. 
-		The model is defined on the [0,1] interval. You can manipulate the 
-		ker function to make the space periodic. 
-
-		Parameters
-		-----------
-		f : 	function
-				f: H --> R is the aggregate production function.  
-		fp : 	function
-				fp: H-->H. fp(x) for x\in H is the Frechet derivative at x
-		Omega : 	function
-				Omega: H-->H is a compact spillover operator 
-				Omega(x)(i) tells me the spills received at i
-		ker : 	function
-				ker: RxR-->R kernal function defining my spillovers
-		beta :	scalar(int),
-				discount
-		alpha :	scalar(int),
-				boring
-		delta :	scalar(int),
-				even more boring
-		theta :	scalar(int),
-				CRRA parameter, who cares 
-		grid_size : scalar(int), optional(default=10)
-		M :		scalar(int),  optional(default =1)
-				value of M in constraint \int_{0}_{1}x(i) =M, not so boring. 
-				model results should not depend on value of M. 
-		phi:	scalar(int), default = 1
-				magnitude of decent direction in decent operator
-							Tw = w- phi*fp(w)
-				Starting at 1, at each iteration this 
-				is updated using Armijo rule (2.2.2.1 in Ulbrich)
-		
-		Attributes
-		----------
-		f,fp,Omega,ker,beta,alpha,delta,theta,M : see Parameters
-		grid : array_like(float, ndim=1)
-				The grid over space.
+	This class defines the primitives for the optimal spatial growth model. 
+	The model is defined on the [0,1] interval. You can manipulate the 
+	ker function to make the space periodic. 
+	
+	Parameters
+	-----------
+	f : 	function
+			f: H --> R is the aggregate production function.  
+	fp : 	function
+			fp: H-->H. fp(x) for x\in H is the Frechet derivative at x
+	Omega : 	function
+			Omega: H-->H is a compact spillover operator 
+			Omega(x)(i) tells me the spills received at i
+	ker : 	function
+			ker: RxR-->R kernal function defining my spillovers
+	beta :	scalar(int),
+			discount
+	alpha :	scalar(int),
+			boring
+	delta :	scalar(int),
+			even more boring
+	theta :	scalar(int),
+			CRRA parameter, who cares 
+	grid_size : scalar(int), optional(default=10)
+	M :		scalar(int),  optional(default =1)
+			value of M in constraint \int_{0}_{1}x(i) =M, not so boring. 
+			model results should not depend on value of M. 
+	phi:	scalar(int), default = 1
+			magnitude of decent direction in decent operator
+						Tw = w- phi*fp(w)
+			Starting at 1, at each iteration this 
+			is updated using Armijo rule (2.2.2.1 in Ulbrich)
+	
+	Attributes
+	----------
+	f,fp,Omega,ker,beta,alpha,delta,theta,M : see Parameters
+	grid : array_like(float, ndim=1)
+			The grid over space.
 
 """
 
@@ -98,7 +98,6 @@ class geog(object):
 		
 		"""
 		
-		
 		Aw = lambda x: interp(x, self.grid, w)
 		z = integrate.quad(Aw,0,1)
 		z = z[0]
@@ -106,8 +105,6 @@ class geog(object):
 		for i in range(len(w)):
 			Pw[i]=	self.M + w[i] - z
 		return Pw
-	
-
 	
 	def proj_dec(self,w):
 		"""
