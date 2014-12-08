@@ -4,6 +4,11 @@ from scipy import interp
 from norms import normL2
 
 """
+	filename: geog.py
+	Author: Akshay Shanker 
+"""
+
+"""
 	This class defines the primitives for the optimal spatial growth model. 
 	The model is defined on the [0,1] interval. You can manipulate the 
 	ker function to make the space periodic. 
