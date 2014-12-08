@@ -54,10 +54,12 @@ class geog(object):
 	
 	## you should input the f: H ->R function and the gradient of this function fp(x)\in H, so fp: H->H
 	
-	def __init__(self, f, fp,alpha, beta,delta, theta, Omega, ker, grid_size = 10, M = 1, phi=1, gamma = .5):
+	def __init__(self, f, fp,alpha, beta,delta, theta, Omega, ker, grid_size = 10, \
+		M = 1, phi=1, gamma = .5):
 		
 		self.f, self.fp, self.Omega, self.ker = f, fp, Omega, ker
-		self.alpha, self.beta, self.delta, self.theta, self.M, self.phi, self.gamma = alpha, beta, delta, theta, M, phi, gamma
+		self.alpha, self.beta, self.delta, self.theta, self.M, self.phi, self.gamma \
+		= alpha, beta, delta, theta, M, phi, gamma
 		self.grid = np.linspace(0,1, grid_size)
 		
 		
@@ -140,7 +142,9 @@ class geog(object):
 			print("Armijo coef is %f" % (self.phi))
 			Tw = self.decent(w,self.phi)
 			PTw = self.proj(Tw,self.M)
-			difference = -self.f(PTw,self.alpha,self.Omega,self.ker) +self.f(w,self.alpha,self.Omega,self.ker) + (self.gamma/self.phi)*normL2(w,PTw,len(w))
+			difference = -self.f(PTw,self.alpha,self.Omega,self.ker) +\
+			self.f(w,self.alpha,self.Omega,self.ker) + \
+			(self.gamma/self.phi)*normL2(w,PTw,len(w))
 			if self.phi<1:
 				self.phi = (self.phi)**2
 			else:
