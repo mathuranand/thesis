@@ -5,6 +5,11 @@ import matplotlib.pyplot as plt
 
 from compute_fp import compute_fixed_point
 
+
+"""
+	Implementatio of geo model with Cobb-Douglass production
+"""
+
 grid_size = 100
 grid = np.linspace(0,1, grid_size)
 beta = .9
@@ -15,10 +20,6 @@ M=10
 
 
 ker = lambda x,y: 1*np.exp(-(.2*(x-y)**2))
-
-
-
-
 
 def Omega(x,ker):
 	s = np.zeros(len(x))
@@ -63,7 +64,6 @@ def fp(x,alpha,Omega, *args):
 	return y
 
 
-
 x = np.ones(grid_size)
 x = x*M
 
@@ -78,21 +78,4 @@ g_star, lamb = geo.growth(v_star)
 
 ax.plot(grid,v_star, '-', lw=1)
 
-
-"""
-num_rows, num_cols = 3, 2
-fig, ax = plt.subplots(num_rows, num_cols, figsize=(8, 12))
-
-geo = geog(f,fp,.4, beta, delta, theta, Omega, ker1, grid_size,M)
-
-
-for i,alpha in enumerate(capital_shares):
-	for j,ker in enumerate(kernals):
-		geo.ker = ker
-		geo.alpha = alpha 
-		v_star = compute_fixed_point(geo.proj_dec, x)
-		g_star, lamb = geo.growth(v_star)
-		ax[i,j].plot(grid,v_star, 'o-', lw=2, label=r'$\alpha = {}$'.format(alpha))
-"""
-		
 plt.savefig('geo.eps')
