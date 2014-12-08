@@ -5,6 +5,11 @@ import matplotlib.pyplot as plt
 
 from compute_fp import compute_fixed_point
 
+"""
+	filename: geoss_cdd.py
+	Author: Akshay Shanker 
+"""
+
 
 """
 	Implementation of geo model with Cobb-Douglass production
