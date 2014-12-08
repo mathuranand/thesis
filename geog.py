@@ -4,8 +4,8 @@ from scipy import interp
 from norms import normL2
 
 """
-	filename: geog.py
-	Author: Akshay Shanker 
+filename: geog.py
+Author: Akshay Shanker 
 """
 
 """
