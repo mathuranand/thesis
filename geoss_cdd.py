@@ -7,7 +7,7 @@ from compute_fp import compute_fixed_point
 
 
 """
-	Implementatio of geo model with Cobb-Douglass production
+	Implementation of geo model with Cobb-Douglass production
 """
 
 grid_size = 100
