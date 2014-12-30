@@ -1,0 +1,251 @@
+\documentclass[12pt,english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage[a4paper]{geometry}
+\geometry{verbose,tmargin=1.3in,bmargin=1.3in}
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+\usepackage{float}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{setspace}
+
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\Gr}{Gr}
+\DeclareMathOperator{\inte}{int}
+\DeclareMathOperator{\di}{d}
+
+
+\usepackage[round]{natbib}
+\usepackage[affil-it]{authblk}
+
+\newcommand{\argmin}{\operatornamewithlimits{argmin}}
+\newcommand{\supl}{\operatornamewithlimits{sup}}
+
+\usepackage{kpfonts}
+\usepackage{esint}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\theoremstyle{definition}
+\newtheorem{defn}{\protect\definitionname}[section]
+\theoremstyle{plain}
+\newtheorem{thm}{\protect\theoremname}[section]
+\theoremstyle{plain}
+\newtheorem{cor}{\protect\corollaryname}[section]
+\theoremstyle{remark}
+\newtheorem{rem}{\protect\remarkname}[section]
+\theoremstyle{definition}
+\newtheorem{example}{\protect\examplename}[section]
+\theoremstyle{plain}
+\newtheorem{assumption}{\protect\assumptionname}
+\theoremstyle{plain}
+\newtheorem{prop}{\protect\propositionname}[section]
+\theoremstyle{remark}
+\newtheorem{note}{\protect\notename}
+\theoremstyle{plain}
+\newtheorem{lem}{\protect\lemmaname}[section]
+\theoremstyle{remark}
+\newtheorem{claim}{\protect\claimname}[section]
+\theoremstyle{plain}
+\newtheorem*{prop*}{\protect\propositionname}
+\theoremstyle{plain}
+\newtheorem*{lem*}{\protect\lemmaname}
+\theoremstyle{plain}
+\newtheorem{fact}{\protect\factname}[section]
+
+\usepackage{babel}
+\providecommand{\assumptionname}{Assumption}
+\providecommand{\claimname}{Claim}
+\providecommand{\definitionname}{Definition}
+\providecommand{\examplename}{Example}
+\providecommand{\factname}{Fact}
+\providecommand{\lemmaname}{Lemma}
+\providecommand{\notename}{Note}
+\providecommand{\propositionname}{Proposition}
+\providecommand{\remarkname}{Remark}
+\providecommand{\corollaryname}{Corollary}
+\providecommand{\theoremname}{Theorem}
+
+
+\begin{document}
+	
+	
+	\title{Endogenous technical change and energy demand}
+	
+	
+	\author{Akshay Shanker%
+		\thanks{Electronic address: \texttt{akshay.shanker@me.com}}}
+	\affil{Centre of Applied Macroeconomic Analysis,\\ Australian National University}
+	
+
+	
+	
+	\date{\today}
+	
+	\maketitle
+	
+	
+	\maketitle
+	
+\section{Introduction}
+
+In this note, I will introduce a simple model of endogenous growth with endogenous energy demand to explain stylized trends in energy use. The note is preliminary, technical. 
+
+\section{Endogenous growth model}
+\subsection{Model environment}
+
+Output is produced by a representative final goods producer 
+
+\begin{equation*}
+Y = \left(1-\alpha\right)^{-1}E^{\gamma\alpha}L^{\alpha\left(1-\gamma\right)} \int_{\mathscr{T}}x\left(i\right)^{1-\alpha}q\left(i\right)^{\alpha}\di i
+\end{equation*}
+
+$\mathscr{T}\subset \mathbb{R}^{k}$ is technology space with measure $T$ (a technical detail that becomes handy later). I have suppressed time subscripts to keep the notation simple, I will introduce them when necessary. 
+	
+Energy ($E$) can be extracted at a cost $E^{\xi}$ where $\xi>0$. 
+
+
+The function $x$ represents machines used by the final goods producer and $q$ is the quality of the machines. Monopolists produce machines, a monopolist with patent for machine $i$ can produce $x\left(i\right)$ at cost $\left(1-\alpha\right)$
+
+$L$ is labour used by the final goods producer. The total population is $P$ and workers can either work in the final goods sector or do $R\&D$. Here is the labour market clearing condition 
+
+\begin{equation*}
+L + S = P
+\end{equation*}
+
+People can decide in each period whether to work in the final goods sector as workers and be paid a wage $w$ or do some research, become and entrepreneur. If someone decides to become and entrepreneur, they are randomly allocated by Shiva, the god of creative destruction, to a machine $i\in \mathscr{T}$. Schumpeter then flips a coin that lands on heads with $\eta$ probability, and if the coin is a head, Schumpeter sends the entrepreneur a new machine improved by factor $\Gamma$. That is if an innovation is successful
+
+\begin{equation*}
+q\left(i\right)_{t+1} = q\left(i\right)_{t}\left(1+\Gamma\right)
+\end{equation*}
+
+The successful entrepreneur gets the monopoly rights for just one period (Schumpeter was actually a socialist). After the patent expires, monopoly rights are re-allocated randomly to the population until a new innovation is made. Note all machine types will be demanded in each period, but if an innovation has occurred in a period then only the leading edge machine will have positive demand. 
+
+The setup I just described may seem absurd, but it is a convenient (see\cite{Acemoglu2012}) way to get balanced growth paths that we can study. We can generalise to a more realistic model later and see if the conclusions we derive are essentially the same. The model will admit a representative household, but since we are not worrying about investment or long lived patents, I will omit the discussion for now. 
+
+\subsection{Equilibrium}
+
+Let's start with final goods producers' demand for machines
+
+\begin{equation*}
+p_{x}\left(i\right) = E^{\gamma\alpha}L^{\alpha\left(1-\gamma\right)}q\left(i\right)^{\alpha}x\left(i\right)^{-\alpha}
+\end{equation*}
+
+The monopolist who owns the patent to $i$ will control quantity to maximise profits 
+
+\begin{equation*}
+\max_{x\left(i\right)} E^{\gamma\alpha}L^{\alpha\left(1-\gamma\right)}q\left(i\right)^{\alpha}x\left(i\right)^{1-\alpha} - \left(1-\alpha\right)x\left(i\right)
+\end{equation*}
+
+
+
+
+Taking first order conditions we  get capital goods demand 
+
+\begin{equation*}
+x\left(i\right) = E^{\gamma}L^{1-\gamma}q\left(i\right)
+\end{equation*}
+
+and monopoly profits  
+
+\begin{equation}
+\pi\left(i\right)=\alpha E^{\gamma}L^{1-\gamma}q\left(i\right)
+\end{equation}
+
+using this equation we can derive 
+
+\begin{equation}\label{eq: Y1}
+Y =   E^{\gamma}L^{1-\gamma}\int_{\mathscr{T}}q\left(i\right)\di i \colon = E^{\gamma}L^{1-\gamma}Q
+\end{equation}
+
+Next, the final goods producers' energy demands are (take first order conditions and equate)
+
+\begin{equation*}
+E = Y^{\frac{1}{\xi}}\left(\frac{\gamma\alpha}{1-\alpha}\right)^{\frac{1}{\xi}}
+\end{equation*}
+
+We can plug this back intro \eqref{eq: Y1} to write output in terms of just technology and labour 
+
+\begin{equation}\label{eq: Y2}
+	Y = \left(1-\alpha\right)^{\frac{\xi}{\gamma-\xi}}\left(\frac{\gamma \alpha}{1-\alpha}\right)^{\frac{\gamma}{\xi-\gamma}}L^{\frac{\left(1-\gamma\right)\xi}{\xi-\gamma}}Q^{\frac{\xi}{\xi-\gamma}}\	
+\end{equation}
+
+
+and profits and wages for labour 
+
+\begin{equation}
+	\pi\left(i\right) = L^{\frac{(\gamma -1) \xi }{\gamma -\xi }} Q^{\frac{\gamma }{\xi -\gamma }}q\left(i\right) \Lambda_{1}
+\end{equation}\
+
+\begin{equation}
+w = L^{\frac{\gamma  (\xi -1)}{\gamma -\xi }} Q^{\frac{\xi }{\xi - \gamma }}\Lambda_{2}
+\end{equation}
+
+
+where $\Lambda$ are constants. 
+
+Now let's turn our attention to the innovation decision. In each period, someone decides to either work or become an entrepreneur. If an innovation is successful, they are returned with a patent for the improved product in the next period. Then the expected profitability of becoming an entrepreneur is 
+
+\begin{equation}
+\mathbb{E}\Pi_{t+1} =  \eta\left(1+\Gamma\right)\int_{\mathscr{T}}L^{\frac{(\gamma -1) \xi }{\gamma -\xi }} Q_{t+1}^{\frac{\gamma }{\xi -\gamma }}q_{t}\left(i\right) \Lambda_{1}\di i  = \eta\left(1+\Gamma\right)L^{\frac{(\gamma -1) \xi }{\gamma -\xi }} Q_{t+1}^{\frac{\gamma }{\xi -\gamma }}Q_{t} \Lambda_{1}
+\end{equation}
+
+When the allocation of scientists is $S$, $Q_{t}$ evolves as follows - using law of large number type arguments 
+
+\begin{equation}
+Q_{t+1} = \left(1+\eta\Gamma S\right)Q_{t}
+\end{equation}
+
+For someone to be indifferent between being an entrepreneur and worker we need $w_{t} = \mathbb{E}\Pi_{t+1}$ and thus 
+
+\begin{equation}
+Q^{\frac{\xi}{\xi-\gamma}} = LQ_{t}^{\frac{\gamma}{\xi-\gamma}+1}\eta\left(1+\Gamma\right)\left(1+\eta\Gamma S\right)^{\frac{\gamma}{\xi-\gamma}}\frac{\Lambda_{1}}{\Lambda_{2}}
+\end{equation}
+
+this can be simplified to 
+
+\begin{equation}
+1 = \left(P-S\right)\eta\left(1+\Gamma\right)\left(1+\eta\Gamma S\right)^{\frac{\gamma}{\xi-\gamma}}\frac{\Lambda_{1}}{\Lambda_{2}}
+\end{equation}
+
+This equation characterises our equilibrium allocation of scientists, there is a unique allocation when $P\eta\left(1+\Gamma\right)\frac{\Lambda_{1}}{\Lambda_{2}}>1$ and $\eta\left(1+\Gamma\right)\left(1+\eta\Gamma P\right)^{\frac{\gamma}{\xi-\gamma}}\frac{\Lambda_{1}}{\Lambda_{2}}<1$ or vice versa (mean value theorem). 
+
+\subsubsection{Balanced growth path characteristics}
+
+The growth rate of $Q$ will be $\eta\Gamma S =\colon g_{Q}$. From \eqref{eq: Y2}, the growth rate of output $Y$ will be $\left(1+g_{Q}\right)^{\frac{\xi}{\xi-\gamma}}-1 = g_{y}$. The growth rate of energy will be $\left(1+g_{y}\right)^{\frac{1}{\xi}}-1 = g_{E} $. Clearly energy will grow at a slower rate than output since $\xi>1$ or energy costs are increasing. Moreover, since 
+
+\begin{equation}\label{eq: energyeff}
+\frac{E}{Y} = Y^{\frac{1-\xi}{\xi}}\left(\frac{\gamma\alpha}{1-\alpha}\right)^{\frac{1}{\xi}}
+\end{equation}
+
+the energy intensity will increase by a rate $\left(1+g_{y}\right)^{\frac{1-\xi}{\xi}}-1$. Energy prices will increase at the rate of growth of output. 
+
+
+\section{The CES function and energy efficiency}
+
+If we look at \ref{eq: energyeff}, we can see that if $\xi = 1$, i.e. energy prices are constant, energy efficiency remains constant along the BGP. Does this conclusion change if factors and capital are not unit elastic substitutes? Consider the following production function
+
+\begin{equation}\label{eq: product}
+Y  = \left( \left(E^{\gamma}Q\right)^{\rho} + x^{\rho}\right)^{\frac{1}{\rho}}
+\end{equation}
+
+I have omitted labour to keep the notation simple, but we can imagine a constant term $L^{1-\gamma}$ augmenting $E$. $Q$ is technology and augments $E$ and $L$; but we can imagine $Q$ augments just labour or just energy, it does not matter for our analysis. 
+
+Constructing a general equilibrium environment with endogenous growth paths is somewhat complicated for this model. But we can ask what happens to the ratio $\frac{E}{Y}$ as $Q$ changes using simple comparative statics. 
+
+Suppose capital is supplied at a constant price, if a monopolist supplies capital then the constant price will be a markup over the cost (we also require $\phi>0$). A constant price of capital means that the ratio of capital to output is constant in equilibrium. Taking first order conditions we get 
+
+\begin{equation}\label{eq: caprat}
+\frac{X}{Y} = \psi^{\frac{1}{\rho-1}}
+\end{equation}
+
+where $\psi$ is the price of capital. Let's call $\left(E^{\gamma}Q\right)$ effective energy services. So output consists of two inputs, effective energy and capital. If $X$ takes up constant share of $Y$, then effective energy services must also make up a constant share of $Y$. We can see this algebraically by subbing in \ref{eq: caprat} into \label{eq: product} and solving out for $Y$. 
+
+The 
+
+\end{document}
